@@ -1,5 +1,7 @@
 package com.avision_amc.africavisionapp;
 
+import static com.avision_amc.africavisionapp.PhoneUtils.makePhoneCall;
+
 import android.Manifest;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -11,6 +13,7 @@ import android.content.pm.PackageManager;
 import android.location.Address;
 import android.location.Geocoder;
 import android.location.Location;
+import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.widget.Button;
@@ -21,11 +24,17 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Locale;
 
+import com.google.zxing.integration.android.IntentIntegrator;
+import com.google.zxing.integration.android.IntentResult;
+
 public class MainActivity extends AppCompatActivity {
     private static final int REQUEST_IMAGE_CAPTURE = 1;// Request code for image capture
     private static final int LOCATION_PERMISSION_REQUEST_CODE = 200;// Request code for location permission
 
     private static final int REQUEST_CAMERA_PERMISSION=1;
+
+    private static final String TELEPHONE_NUM_START= "003069000000";
+    private String phoneNumber;
     private TextView textViewCountry;
 
 
@@ -37,8 +46,8 @@ public class MainActivity extends AppCompatActivity {
 
         textViewCountry = findViewById(R.id.textViewCountry);
 
-        Button openCameraButton = findViewById(R.id.buttonCamera);
-        openCameraButton.setOnClickListener(view->{ requestCameraPermission();});
+        Button openQRButton = findViewById(R.id.buttonQR);
+        openQRButton.setOnClickListener(view-> initiateQRCodeScan());
 
         Button CommentButton = findViewById(R.id.buttonComment);
         CommentButton.setOnClickListener(view->{
@@ -72,6 +81,14 @@ public class MainActivity extends AppCompatActivity {
             // Request location permission
             ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, LOCATION_PERMISSION_REQUEST_CODE);
         }
+    }
+
+    private void initiateQRCodeScan() {
+        IntentIntegrator integrator = new IntentIntegrator(this);
+        integrator.setOrientationLocked(false);
+        integrator.setDesiredBarcodeFormats(IntentIntegrator.QR_CODE);
+        integrator.setPrompt("Scan the QR code displayed on your TV");
+        integrator.initiateScan();
     }
 
     private void getCurrentLocation() {
@@ -116,7 +133,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
     // Handle the permission results
-    @Override
+    /*@Override
     public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
         if (requestCode == LOCATION_PERMISSION_REQUEST_CODE) {
             if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
@@ -154,18 +171,38 @@ public class MainActivity extends AppCompatActivity {
         } else {
             Toast.makeText(this, "Camera not available", Toast.LENGTH_SHORT).show();
         }
-    }
+    }*/
 
     // Handle the result of the camera capture
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
+        //super.onActivityResult(requestCode, resultCode, data);
+        //if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
             // Image capture successful
-        } else if (resultCode == RESULT_CANCELED) {
-            Toast.makeText(this, "Image capture cancelled", Toast.LENGTH_SHORT).show();
+        //} else if (resultCode == RESULT_CANCELED) {
+        //    Toast.makeText(this, "Image capture cancelled", Toast.LENGTH_SHORT).show();
+       // } else {
+       //     Toast.makeText(this, "Failed to capture image", Toast.LENGTH_SHORT).show();
+        //}
+
+        IntentResult result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data);
+        if (result != null) {
+            if (result.getContents() == null) {
+                Toast.makeText(this, "Cancelled", Toast.LENGTH_LONG).show();
+            } else {
+                String qrContent = result.getContents();
+                if (qrContent.startsWith("africavision_")) {
+                    String callID = qrContent.substring(qrContent.length() - 2);
+                    // Use the lastTwoCharacters as needed
+                    phoneNumber = TELEPHONE_NUM_START + callID;
+                    makePhoneCall(this,phoneNumber);
+
+                } else {
+                    Toast.makeText(this, "Invalid QR code", Toast.LENGTH_LONG).show();
+                }
+            }
         } else {
-            Toast.makeText(this, "Failed to capture image", Toast.LENGTH_SHORT).show();
+            super.onActivityResult(requestCode, resultCode, data);
         }
     }
 

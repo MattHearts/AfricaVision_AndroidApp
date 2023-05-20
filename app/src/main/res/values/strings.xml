@@ -5,7 +5,7 @@
     <string name="vote_now">VOTE NOW!</string>
     <string name="add_comment_btn_text">Add Comment</string>
     <string name="refresh_btn_text">Refresh</string>
-    <string name="open_camera_btn_text">Open Camera</string>
+    <string name="vote_qr_btn_text">Vote via QR</string>
     <string name="whole_experience_text">Wanna live the whole experience?</string>
     <string name="photo_TV_text">Take a photo of your TV playing AfricaVision now!</string>
     <string name="join_the_converstation_text">Join the converstation or</string>

@@ -81,16 +81,16 @@ public class ContestantAdapter extends ArrayAdapter<Contestant> {
         phoneNumber = TELEPHONE_NUM_START + callID;
 
 
-            makePhoneCall(phoneNumber);
+        PhoneUtils.makePhoneCall(context,phoneNumber);
         }
 
 
-    private void makePhoneCall(String phoneNumber) {
+   /* private void makePhoneCall(String phoneNumber) {
         // Create the intent to initiate the phone call
         Intent intent = new Intent(Intent.ACTION_DIAL);
         intent.setData(Uri.parse("tel:" + phoneNumber));
         context.startActivity(intent);
-    }
+    }*/
 
 
 
