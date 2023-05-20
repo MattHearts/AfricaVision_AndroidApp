@@ -24,28 +24,30 @@ public class CommentsActivity extends AppCompatActivity {
     private AppDatabase appDatabase;
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_comments);
 
         Button AddCommentButton = findViewById(R.id.buttonAddComment);
-        AddCommentButton.setOnClickListener(view->{
+        AddCommentButton.setOnClickListener(view -> {
+            // Starts the AddACommentActivity to add a new comment
             Intent intent = new Intent(this, AddACommentActivity.class);
             startActivity(intent);
         });
 
         Button buttonDeleteComments = findViewById(R.id.buttonDeleteComments);
-        buttonDeleteComments.setOnClickListener(view->{
+        buttonDeleteComments.setOnClickListener(view -> {
+            // Asks the user to confirm the deletion of all comments
             deleteAllComments();
         });
 
         Button RefreshCommentsButton = findViewById(R.id.buttonRefreshComments);
-        RefreshCommentsButton.setOnClickListener(view->{
+        RefreshCommentsButton.setOnClickListener(view -> {
             retrieveComments();
         });
 
+        // Sets up the RecyclerView to display comments
         recyclerViewComments = findViewById(R.id.recyclerViewComments);
         recyclerViewComments.setLayoutManager(new LinearLayoutManager(this));
 
@@ -54,12 +56,13 @@ public class CommentsActivity extends AppCompatActivity {
         retrieveComments();
     }
 
+    // Retrieves and display the comments from the database to the RecycleView
     private void retrieveComments() {
         appDatabase.userDao().getAll().observe(this, new Observer<List<UserModel>>() {
             @Override
             public void onChanged(List<UserModel> users) {
                 if (users != null) {
-                    // Reverse the order of the list to display most recent comments at the top
+                    // Reverses the order of the list to display most recent comments at the top
                     Collections.reverse(users);
                     if (users.isEmpty()) {
                         Toast.makeText(CommentsActivity.this, "No comments found", Toast.LENGTH_SHORT).show();
@@ -74,6 +77,7 @@ public class CommentsActivity extends AppCompatActivity {
         });
     }
 
+    // Asks the user to confirm the deletion of all comments
     public void deleteAllComments() {
         new AlertDialog.Builder(this)
                 .setTitle("Delete All Comments")
@@ -92,12 +96,16 @@ public class CommentsActivity extends AppCompatActivity {
         new DeleteCommentsTask().execute();
     }
 
+
+    // AsyncTask to delete comments from the database in the background
     private class DeleteCommentsTask extends AsyncTask<Void, Void, Void> {
         @Override
         protected Void doInBackground(Void... voids) {
+            // Calls the UserDao's deleteAll() method to delete all comments
             appDatabase.userDao().deleteAll();
             return null;
         }
+
         @Override
         protected void onPostExecute(Void aVoid) {
             Toast.makeText(CommentsActivity.this, "All comments deleted, shame on you...", Toast.LENGTH_LONG).show();

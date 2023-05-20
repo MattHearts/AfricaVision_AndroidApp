@@ -16,8 +16,6 @@ import android.os.Vibrator;
 import android.widget.TextView;
 
 
-
-
 public class PartyScopeActivity extends AppCompatActivity implements SensorEventListener {
 
     private SensorManager sensorManager;
@@ -33,6 +31,8 @@ public class PartyScopeActivity extends AppCompatActivity implements SensorEvent
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_party_scope);
 
+
+        //Initializes views and sensors
         textView = findViewById(R.id.textView);
         sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
         gyroscope = sensorManager.getDefaultSensor(Sensor.TYPE_GYROSCOPE);
@@ -47,6 +47,7 @@ public class PartyScopeActivity extends AppCompatActivity implements SensorEvent
 
     @Override
     protected void onPause() {
+        //Unregisters the gyroscope sensor listener when the activity is paused
         super.onPause();
         sensorManager.unregisterListener(this);
     }
@@ -54,15 +55,17 @@ public class PartyScopeActivity extends AppCompatActivity implements SensorEvent
     @SuppressLint("SetTextI18n")
     @Override
     public void onSensorChanged(SensorEvent event) {
+        //Retrieves the gyroscope sensor values
         float x = event.values[0];
         float y = event.values[1];
         float z = event.values[2];
 
 
-        float threshold = 1.5f; // Adjust the threshold value as needed
+        float threshold = 1.5f; //Adjusts the threshold value as needed for detecting hard movements
 
-
+        //Checks if the gyroscope values are over the threshold
         if (Math.abs(x) > threshold || Math.abs(y) > threshold || Math.abs(z) > threshold) {
+            //If a hard partying is detected and it was not previously detected
             if (!isHardDetected) {
                 textView.setText("HARD");
                 textView.setTextColor(Color.RED);
@@ -74,6 +77,7 @@ public class PartyScopeActivity extends AppCompatActivity implements SensorEvent
                 isHardDetected = true;
             }
         } else {
+            // If no hard movement is detected and it was previously detected
             if (isHardDetected) {
                 textView.setText("low");
                 textView.setTextColor(Color.GREEN);
@@ -87,7 +91,6 @@ public class PartyScopeActivity extends AppCompatActivity implements SensorEvent
     public void onAccuracyChanged(Sensor sensor, int accuracy) {
         // Not used, but required to implement SensorEventListener
     }
-
 
 
 }

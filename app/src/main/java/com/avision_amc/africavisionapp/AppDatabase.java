@@ -13,8 +13,10 @@ public abstract class AppDatabase extends RoomDatabase {
 
     public abstract UserDao userDao();
 
+    // Singleton pattern to ensure only one instance of AppDatabase is created
     public static synchronized AppDatabase getInstance(Context context) {
         if (instance == null) {
+            // Creates a new instance of AppDatabase
             instance = Room.databaseBuilder(context.getApplicationContext(),
                             AppDatabase.class, "app_database")
                     .fallbackToDestructiveMigration()

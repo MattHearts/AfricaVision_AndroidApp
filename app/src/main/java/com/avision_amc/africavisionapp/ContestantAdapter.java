@@ -12,7 +12,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 
-
 import java.util.List;
 
 public class ContestantAdapter extends ArrayAdapter<Contestant> {
@@ -22,7 +21,7 @@ public class ContestantAdapter extends ArrayAdapter<Contestant> {
 
     private String phoneNumber;
 
-    private static final String TELEPHONE_NUM_START= "003069000000";
+    private static final String TELEPHONE_NUM_START = "003069000000";
 
     public ContestantAdapter(Context context, List<Contestant> contestants) {
         super(context, 0, contestants);
@@ -33,6 +32,7 @@ public class ContestantAdapter extends ArrayAdapter<Contestant> {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         ViewHolder holder;
+
 
         if (convertView == null) {
             convertView = LayoutInflater.from(context).inflate(R.layout.contestant_row, parent, false);
@@ -51,22 +51,22 @@ public class ContestantAdapter extends ArrayAdapter<Contestant> {
 
         Contestant contestant = contestants.get(position);
 
-        // Set the call ID
+        //Sets the callID View
         holder.callIDView.setText(String.format("+%s", contestant.getCallID()));
 
-        // Set the country name
+        //Sets the countryName
         holder.countryNameTextView.setText(contestant.getCountryName());
 
-        // Set the song name
+        //Sets the songName
         holder.songNameTextView.setText(contestant.getSongName());
 
-        // Set the flag image (replace with appropriate resource ID)
+        //Sets the flag image resource ID
         holder.flagImageView.setImageResource(contestant.getFlagResId());
 
-        // Set the Vote button functionality if needed
-        holder.voteButton.setOnClickListener(view-> {
 
-                // Performs the vote button action here
+        holder.voteButton.setOnClickListener(view -> {
+
+            //Performs the vote button action via handleButtonClick method
             handleVoteButtonClick(contestant.getCallID());
 
         });
@@ -74,15 +74,12 @@ public class ContestantAdapter extends ArrayAdapter<Contestant> {
         return convertView;
     }
 
+    //Performs the vote action for the specific contestant
     private void handleVoteButtonClick(String callID) {
-        // Perform the vote button action for the specific contestant
-        // You can implement the desired logic here
-        // Prepare the phone number by appending the callID
+
         phoneNumber = TELEPHONE_NUM_START + callID;
-
-
-        PhoneUtils.makePhoneCall(context,phoneNumber);
-        }
+        PhoneUtils.makePhoneCall(context, phoneNumber);
+    }
 
 
    /* private void makePhoneCall(String phoneNumber) {
@@ -91,7 +88,6 @@ public class ContestantAdapter extends ArrayAdapter<Contestant> {
         intent.setData(Uri.parse("tel:" + phoneNumber));
         context.startActivity(intent);
     }*/
-
 
 
     private static class ViewHolder {

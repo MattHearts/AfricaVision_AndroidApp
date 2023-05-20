@@ -7,13 +7,11 @@ public class Contestant {
     private String callID;
 
 
-
-    Contestant(String countryName, int flagResId, String songName, String callID)
-    {
-        this.countryName=countryName;
-        this.flagResId=flagResId;
-        this.songName=songName;
-        this.callID=callID;
+    Contestant(String countryName, int flagResId, String songName, String callID) {
+        this.countryName = countryName;
+        this.flagResId = flagResId;
+        this.songName = songName;
+        this.callID = callID;
 
     }
 

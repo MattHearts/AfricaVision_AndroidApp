@@ -7,16 +7,16 @@ import androidx.room.PrimaryKey;
 @Entity(tableName = "user_table")
 public class UserModel {
 
-        @PrimaryKey(autoGenerate = true)
-        private long id;
+    @PrimaryKey(autoGenerate = true)
+    private long id;
 
-        @ColumnInfo(name = "nickname")
-        private String nickname;
+    @ColumnInfo(name = "nickname")
+    private String nickname;
 
-        @ColumnInfo(name = "comments")
-        private String comments;
+    @ColumnInfo(name = "comments")
+    private String comments;
 
-        //Contractor
+    //Contractor
     public UserModel(String nickname, String comments) {
         this.nickname = nickname;
         this.comments = comments;

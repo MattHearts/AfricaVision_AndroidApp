@@ -1,4 +1,5 @@
 package com.avision_amc.africavisionapp;
+
 import android.graphics.Typeface;
 import android.text.Spannable;
 import android.text.SpannableString;
@@ -25,16 +26,19 @@ public class CommentsAdapter extends RecyclerView.Adapter<CommentsAdapter.Commen
     @NonNull
     @Override
     public CommentViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        //Inflates the item_comment layout for each item in the RecyclerView
         View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_comment, parent, false);
         return new CommentViewHolder(itemView);
     }
 
     @Override
     public void onBindViewHolder(@NonNull CommentViewHolder holder, int position) {
+        //Binds the comment data to the ViewHolder at the given positio
         UserModel comment = commentsList.get(position);
         holder.bind(comment);
     }
 
+    //Returns the total number of comments in the list
     @Override
     public int getItemCount() {
         return commentsList.size();
@@ -50,6 +54,7 @@ public class CommentsAdapter extends RecyclerView.Adapter<CommentsAdapter.Commen
         }
 
         public void bind(UserModel comment) {
+            //Binds the comment data to the TextView
             String commentText = comment.getComments() + " - " + comment.getNickname();
             SpannableString spannableString = new SpannableString(commentText);
             spannableString.setSpan(new StyleSpan(Typeface.BOLD), 0, comment.getComments().length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
