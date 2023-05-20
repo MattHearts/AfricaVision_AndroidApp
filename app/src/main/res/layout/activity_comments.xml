@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/africavision_2023_title"
+        android:fontFamily="@font/aclonica"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:padding="16dp"
+        android:textAlignment="center"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/comment_section"
+        android:textSize="16sp"
+        android:textAlignment="center"
+        />
+
+
+    <Button
+        android:id="@+id/buttonAddComment"
+        android:layout_width="127dp"
+        android:layout_height="wrap_content"
+        android:text="@string/add_a_comment_btn" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewComments"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:padding="16dp" />
+
+    <TextView
+
+        android:id="@+id/textView2"
+        android:layout_width="match_parent"
+
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Are you Satan himself? Do you hate hummanity? Go EXTREME and delete all the comments!"
+        android:textColor="#810000" />
+
+    <Button
+        android:id="@+id/buttonDeleteComments"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:onClick="deleteAllComments"
+        android:text="Delete All Comments"
+        app:backgroundTint="#FF3A3A" />
+
+    <Button
+        android:id="@+id/buttonRefreshComments"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/refresh_btn_text"
+        app:backgroundTint="#DAA520" />
+
+</LinearLayout>

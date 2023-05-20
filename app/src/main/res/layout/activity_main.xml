@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+
+    <ImageView
+        android:id="@+id/mainImageView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
+        android:cropToPadding="false"
+        android:scaleType="fitXY"
+        app:srcCompat="@drawable/africavision_stage"
+        android:contentDescription="@string/stage_img_description" />
+
+    <TextView
+        android:id="@+id/mainTitleTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="12dp"
+        android:fontFamily="@font/aclonica"
+        android:text="@string/africavision_title"
+        android:textAlignment="center"
+        android:textColor="#DAA520"
+        android:textSize="55sp" />
+
+    <TextView
+        android:id="@+id/votingFromTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:text="@string/voting_from_text"
+        android:textAlignment="center" />
+
+    <TextView
+        android:id="@+id/textViewCountry"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:textColor="#DAA520"
+        android:textSize="24sp" />
+
+    <Button
+        android:id="@+id/buttonVote"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:text="@string/vote_now"
+        android:textAlignment="center"
+        android:textSize="34sp"
+        app:backgroundTint="#8BC34A" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <Button
+            android:id="@+id/buttonComment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginBottom="16dp"
+            android:rotationX="-25"
+            android:rotationY="-17"
+            android:text="@string/add_comment_btn_text"
+            android:textAlignment="center"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <Button
+            android:id="@+id/buttonRefresh"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/refresh_btn_text"
+            android:textAlignment="center"
+            app:backgroundTint="#DAA520"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/buttonCamera"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            android:rotationX="-25"
+            android:rotationY="17"
+            android:text="@string/open_camera_btn_text"
+            android:textAlignment="center"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <TextView
+            android:id="@+id/introtextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="88dp"
+            android:text="@string/whole_experience_text"
+            android:textAlignment="center"
+            app:layout_constraintBottom_toTopOf="@+id/introtextView3"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <TextView
+            android:id="@+id/introtextView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:text="@string/photo_TV_text"
+            android:textAlignment="center"
+            app:layout_constraintBottom_toTopOf="@+id/buttonCamera"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.495"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/introtextView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/join_the_converstation_text"
+            android:textAlignment="center"
+            app:layout_constraintBottom_toTopOf="@+id/introtextView2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <Button
+            android:id="@+id/buttonPartyScope"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:rotationX="-33"
+            android:text="@string/partyscope_btn_text"
+            android:textSize="34sp"
+            app:layout_constraintBottom_toTopOf="@+id/introtextView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/buttonRefresh" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</LinearLayout>

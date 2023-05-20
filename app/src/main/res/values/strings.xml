@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">AfricavisionApp</string>
+    <string name="voting_from_text">You are voting from:</string>
+    <string name="africavision_title">AfricaVision</string>
+    <string name="vote_now">VOTE NOW!</string>
+    <string name="add_comment_btn_text">Add Comment</string>
+    <string name="refresh_btn_text">Refresh</string>
+    <string name="open_camera_btn_text">Open Camera</string>
+    <string name="whole_experience_text">Wanna live the whole experience?</string>
+    <string name="photo_TV_text">Take a photo of your TV playing AfricaVision now!</string>
+    <string name="join_the_converstation_text">Join the converstation or</string>
+    <string name="partyscope_btn_text">PARTYSCOPE</string>
+    <string name="stage_img_description">AfricaVision Stage</string>
+    <string name="partyscope_v1_0_text">PARTYSCOPE v1.0</string>
+    <string name="partyscope_what_to_do_text">Dance like an animal and move your phone to party hard!</string>
+    <string name="partyscope_sees_text">The PartyScope sees you are partying...</string>
+    <string name="disco_ball_text">Disco Ball</string>
+    <string name="add_a_comment_btn">Add a comment</string>
+    <string name="comment_section">Comment Section</string>
+    <string name="africavision_2023_title">AfricaVision 2023</string>
+</resources>
