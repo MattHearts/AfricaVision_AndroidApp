@@ -7,11 +7,30 @@
     android:padding="16dp"
     tools:context=".MainActivity">
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/africavision_2023_title"
+        android:fontFamily="@font/aclonica"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:paddingBottom="16dp"
+        android:textAlignment="center"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/share_your_magic"
+        android:textSize="16sp"
+        android:paddingBottom="5dp"
+        android:textAlignment="center"
+        />
+
     <EditText
         android:id="@+id/editTextNickame"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Enter your nickname"
+        android:hint="@string/enter_your_nickname_hint"
         android:inputType="textPersonName" />
 
 
@@ -19,7 +38,7 @@
         android:id="@+id/editTextComments"
         android:layout_width="match_parent"
         android:layout_height="291dp"
-        android:hint="Enter your comment"
+        android:hint="@string/enter_your_comment_hint"
         android:inputType="textMultiLine"
         android:maxLines="5" />
 
@@ -28,6 +47,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:text="Submit" />
+        android:text="@string/submit" />
 
 </LinearLayout>

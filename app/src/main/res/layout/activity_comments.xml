@@ -44,7 +44,7 @@
 
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="Are you Satan himself? Do you hate hummanity? Go EXTREME and delete all the comments!"
+        android:text="@string/himself_delete_all_the_comments"
         android:textColor="#810000" />
 
     <Button
@@ -53,7 +53,7 @@
         android:layout_height="wrap_content"
 
         android:onClick="deleteAllComments"
-        android:text="Delete All Comments"
+        android:text="@string/delete_all_comments"
         app:backgroundTint="#FF3A3A" />
 
     <Button
