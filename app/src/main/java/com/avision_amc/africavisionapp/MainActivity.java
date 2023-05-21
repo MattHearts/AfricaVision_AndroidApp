@@ -185,8 +185,8 @@ public class MainActivity extends AppCompatActivity {
                     String callID = qrContent.substring(qrContent.length() - 2);
 
                     phoneNumber = TELEPHONE_NUM_START + callID;
-                    //Makes a phone call using the constructed phone number
-                    makePhoneCall(this, phoneNumber);
+                    //Makes a phone call or SMS using the constructed phone number
+                    PhoneUtils.VoteChoice(this, callID);
 
                 } else {
                     Toast.makeText(this, "Invalid QR code", Toast.LENGTH_LONG).show();

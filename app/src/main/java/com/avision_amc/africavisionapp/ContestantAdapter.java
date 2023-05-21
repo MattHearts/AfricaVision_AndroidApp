@@ -1,6 +1,8 @@
 package com.avision_amc.africavisionapp;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.view.LayoutInflater;
@@ -20,6 +22,7 @@ public class ContestantAdapter extends ArrayAdapter<Contestant> {
     private List<Contestant> contestants;
 
     private String phoneNumber;
+    private String phoneNumberSMS;
 
     private static final String TELEPHONE_NUM_START = "003069000000";
 
@@ -77,8 +80,8 @@ public class ContestantAdapter extends ArrayAdapter<Contestant> {
     //Performs the vote action for the specific contestant
     private void handleVoteButtonClick(String callID) {
 
-        phoneNumber = TELEPHONE_NUM_START + callID;
-        PhoneUtils.makePhoneCall(context, phoneNumber);
+        PhoneUtils.VoteChoice(context, callID);
+
     }
 
 
