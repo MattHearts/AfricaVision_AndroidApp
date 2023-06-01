@@ -119,7 +119,7 @@ public class MainActivity extends AppCompatActivity {
             textViewCountry.setText("Location permission not granted");
         }
     }
-    // Handle the permission results
+    // Handle the permission resultsa
     /*@Override
     public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
         if (requestCode == LOCATION_PERMISSION_REQUEST_CODE) {
