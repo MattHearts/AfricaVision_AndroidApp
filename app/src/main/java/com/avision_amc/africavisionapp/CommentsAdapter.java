@@ -1,8 +1,10 @@
 package com.avision_amc.africavisionapp;
 
+import android.graphics.Color;
 import android.graphics.Typeface;
 import android.text.Spannable;
 import android.text.SpannableString;
+import android.text.style.ForegroundColorSpan;
 import android.text.style.StyleSpan;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -57,7 +59,12 @@ public class CommentsAdapter extends RecyclerView.Adapter<CommentsAdapter.Commen
             //Binds the comment data to the TextView
             String commentText = comment.getComments() + " - " + comment.getNickname();
             SpannableString spannableString = new SpannableString(commentText);
-            spannableString.setSpan(new StyleSpan(Typeface.BOLD), 0, comment.getComments().length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+            int start = 0;
+            int end = comment.getComments().length();
+            int oppositeStart = end;
+            int oppositeEnd = commentText.length();
+            spannableString.setSpan(new StyleSpan(Typeface.BOLD), oppositeStart, oppositeEnd, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+            spannableString.setSpan(new ForegroundColorSpan(Color.GRAY), oppositeStart, oppositeEnd, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
             textViewComment.setText(spannableString);
         }
     }

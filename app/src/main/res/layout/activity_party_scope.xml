@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#88673AB7"
+    android:background="#7639E3"
     tools:context=".PartyScopeActivity">
 
     <TextView
@@ -63,10 +63,10 @@
         android:layout_width="231dp"
         android:layout_height="422dp"
         android:layout_marginBottom="4dp"
+        android:contentDescription="@string/disco_ball_text"
         app:layout_constraintBottom_toTopOf="@+id/partyscopeTitleTextView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/discoball"
-        android:contentDescription="@string/disco_ball_text" />
+        app:srcCompat="@drawable/discoball" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

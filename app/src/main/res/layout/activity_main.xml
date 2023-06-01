@@ -5,6 +5,7 @@
 
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#251545"
     android:orientation="vertical"
     tools:context=".MainActivity">
 
@@ -14,32 +15,33 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:adjustViewBounds="true"
+        android:contentDescription="@string/stage_img_description"
         android:cropToPadding="false"
         android:scaleType="fitXY"
-        app:srcCompat="@drawable/africavision_stage"
-        android:contentDescription="@string/stage_img_description" />
+        app:srcCompat="@drawable/africavision_stage2" />
 
     <TextView
         android:id="@+id/mainTitleTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="#CD3100"
         android:fontFamily="@font/aclonica"
         android:text="@string/africavision_title"
         android:textAlignment="center"
         android:textColor="@color/white"
-        android:background="#DAA520"
         android:textSize="55sp" />
+
     <TextView
         android:id="@+id/mainSubtitleTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="12dp"
-        android:paddingBottom="5sp"
+        android:background="#FFCD3100"
         android:fontFamily="@font/aclonica"
+        android:paddingBottom="5sp"
         android:text="@string/nairobi_2023"
         android:textAlignment="center"
         android:textColor="@color/white"
-        android:background="#DAA520"
         android:textSize="18sp" />
 
     <TextView
@@ -48,14 +50,15 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="5dp"
         android:text="@string/voting_from_text"
-        android:textAlignment="center" />
+        android:textAlignment="center"
+        android:textColor="#FFFFFF" />
 
     <TextView
         android:id="@+id/textViewCountry"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textAlignment="center"
-        android:textColor="#DAA520"
+        android:textColor="#CD3100"
         android:textSize="24sp" />
 
     <Button
@@ -66,7 +69,7 @@
         android:text="@string/vote_now"
         android:textAlignment="center"
         android:textSize="34sp"
-        app:backgroundTint="#8BC34A" />
+        app:backgroundTint="#5AA305" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -78,6 +81,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginBottom="16dp"
+            android:backgroundTint="#CD3100"
             android:rotationX="-25"
             android:rotationY="-17"
             android:text="@string/add_comment_btn_text"
@@ -92,7 +96,7 @@
             android:minHeight="48dp"
             android:text="@string/refresh_btn_text"
             android:textAlignment="center"
-            app:backgroundTint="#DAA520"
+            app:backgroundTint="#FFCD3100"
             app:layout_constraintBottom_toTopOf="@+id/buttonPartyScope"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -105,6 +109,7 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="16dp"
+            android:backgroundTint="#CD3100"
             android:rotationX="-25"
             android:rotationY="17"
             android:text="@string/vote_qr_btn_text"
@@ -118,6 +123,7 @@
             android:layout_height="wrap_content"
             android:text="@string/whole_experience_text"
             android:textAlignment="center"
+            android:textColor="#FFFFFF"
             app:layout_constraintBottom_toTopOf="@+id/introtextView3"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
@@ -129,6 +135,7 @@
             android:layout_marginBottom="16dp"
             android:text="@string/photo_TV_text"
             android:textAlignment="center"
+            android:textColor="#FFFFFF"
             app:layout_constraintBottom_toTopOf="@+id/buttonQR"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.495"
@@ -140,6 +147,7 @@
             android:layout_height="wrap_content"
             android:text="@string/join_the_converstation_text"
             android:textAlignment="center"
+            android:textColor="#FFFFFF"
             app:layout_constraintBottom_toTopOf="@+id/introtextView2"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />

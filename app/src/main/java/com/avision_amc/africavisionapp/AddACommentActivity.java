@@ -57,7 +57,8 @@ public class AddACommentActivity extends AppCompatActivity {
         @Override
         protected Void doInBackground(UserModel... users) {
             // Inserts the comments into the database using the UserDao
-            appDatabase.userDao().insert(users[0]);
+            //appDatabase.userDao().insert(users[0]);
+            UserRepository.insertComment(users[0]);
             return null;
         }
     }

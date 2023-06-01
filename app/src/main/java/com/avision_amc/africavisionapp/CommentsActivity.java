@@ -52,13 +52,14 @@ public class CommentsActivity extends AppCompatActivity {
         recyclerViewComments.setLayoutManager(new LinearLayoutManager(this));
 
         appDatabase = AppDatabase.getInstance(this);
+        UserRepository.initialize(appDatabase);
 
         retrieveComments();
     }
 
     // Retrieves and display the comments from the database to the RecycleView
     private void retrieveComments() {
-        appDatabase.userDao().getAll().observe(this, new Observer<List<UserModel>>() {
+        UserRepository.getAllComments().observe(this, new Observer<List<UserModel>>() {
             @Override
             public void onChanged(List<UserModel> users) {
                 if (users != null) {
@@ -102,7 +103,8 @@ public class CommentsActivity extends AppCompatActivity {
         @Override
         protected Void doInBackground(Void... voids) {
             // Calls the UserDao's deleteAll() method to delete all comments
-            appDatabase.userDao().deleteAll();
+            //appDatabase.userDao().deleteAll();
+            UserRepository.deleteAllComments();
             return null;
         }
 

@@ -33,7 +33,7 @@ public class VoteActivity extends AppCompatActivity {
         contestants.add(new Contestant("Cameroon", R.drawable.cameroon_flag_heart, "Zamina Mina (Zangalewa) by Golden Sounds", "09"));
         contestants.add(new Contestant("Tunisia", R.drawable.tunisia_flag_heart, "Ena by Balti", "10"));
         contestants.add(new Contestant("Madagascar", R.drawable.madagascar_flag_heart, "Goustaro na horevo by King Julian", "11"));
-        contestants.add(new Contestant("Touareg Group", R.drawable.touareg_flag, "Tarhanine Tegla by Afous D'afous", "12"));
+        contestants.add(new Contestant("Touareg Group", R.drawable.touareg_flag_heart, "Tarhanine Tegla by Afous D'afous", "12"));
 
         //Creates the adapter
         ContestantAdapter adapter = new ContestantAdapter(this, contestants);
