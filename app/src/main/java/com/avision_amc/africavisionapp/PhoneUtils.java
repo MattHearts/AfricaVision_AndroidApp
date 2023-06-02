@@ -18,6 +18,7 @@ public class PhoneUtils {
         intent.setData(Uri.parse("tel:" + phoneNumber));
         context.startActivity(intent);
     }
+
     //Initiates a text message
     public static void sendTextMessage(Context context, String phoneNumber, String SMSmessage) {
         Intent intent = new Intent(Intent.ACTION_SENDTO);

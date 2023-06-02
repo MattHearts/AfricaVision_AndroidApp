@@ -47,7 +47,7 @@ public class PartyScopeActivity extends AppCompatActivity implements SensorEvent
 
     @Override
     protected void onPause() {
-        //Unregisters the gyroscope sensor listener when the activity is paused
+        //Stops the gyroscope sensor listener when the activity is paused
         super.onPause();
         sensorManager.unregisterListener(this);
     }
@@ -55,7 +55,7 @@ public class PartyScopeActivity extends AppCompatActivity implements SensorEvent
     @SuppressLint("SetTextI18n")
     @Override
     public void onSensorChanged(SensorEvent event) {
-        //Retrieves the gyroscope sensor values
+        //Gets the gyroscope sensor values
         float x = event.values[0];
         float y = event.values[1];
         float z = event.values[2];
@@ -77,7 +77,7 @@ public class PartyScopeActivity extends AppCompatActivity implements SensorEvent
                 isHardDetected = true;
             }
         } else {
-            // If no hard movement is detected and it was previously detected
+            //If no hard movement is detected and it was previously detected
             if (isHardDetected) {
                 textView.setText("low");
                 textView.setTextColor(Color.GREEN);
@@ -89,7 +89,7 @@ public class PartyScopeActivity extends AppCompatActivity implements SensorEvent
 
     @Override
     public void onAccuracyChanged(Sensor sensor, int accuracy) {
-        // Not used, but required to implement SensorEventListener
+        //Not used, but required to implement SensorEventListener
     }
 
 

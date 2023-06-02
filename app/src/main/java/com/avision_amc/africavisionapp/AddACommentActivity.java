@@ -25,7 +25,7 @@ public class AddACommentActivity extends AppCompatActivity {
         editTextComments = findViewById(R.id.editTextComments);
         buttonSubmit = findViewById(R.id.buttonSubmit);
 
-        // Gets an instance of the AppDatabase
+        //Gets an instance of the AppDatabase
         appDatabase = AppDatabase.getInstance(this);
 
         buttonSubmit.setOnClickListener(new View.OnClickListener() {
@@ -51,7 +51,7 @@ public class AddACommentActivity extends AppCompatActivity {
         });
     }
 
-    // AsyncTask to insert a user into the database in the background
+    //AsyncTask to insert a user into the database in the background
     private class InsertUserAsyncTask extends AsyncTask<UserModel, Void, Void> {
 
         @Override

@@ -65,8 +65,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:backgroundTint="#5AA305"
-        android:text="@string/submit"
-        />
+        android:backgroundTint="@color/app_green"
+        android:text="@string/submit" />
 
 </LinearLayout>

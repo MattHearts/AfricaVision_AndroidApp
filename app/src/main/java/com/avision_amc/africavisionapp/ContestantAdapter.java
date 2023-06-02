@@ -14,6 +14,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 
+import androidx.core.content.ContextCompat;
+
 import java.util.List;
 
 public class ContestantAdapter extends ArrayAdapter<Contestant> {
@@ -56,6 +58,7 @@ public class ContestantAdapter extends ArrayAdapter<Contestant> {
 
         //Sets the callID View
         holder.callIDView.setText(String.format("+%s", contestant.getCallID()));
+        holder.callIDView.setTextColor(ContextCompat.getColor(context, R.color.app_yellow));
 
         //Sets the countryName
         holder.countryNameTextView.setText(contestant.getCountryName());

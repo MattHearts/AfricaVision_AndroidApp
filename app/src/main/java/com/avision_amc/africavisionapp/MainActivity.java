@@ -70,11 +70,11 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intent);
         });
 
-        //Check if location permission is granted
+        //Checks if location permission is granted
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
             getCurrentLocation();
         } else {
-            //Request location permission
+            //Requests location permission
             ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, LOCATION_PERMISSION_REQUEST_CODE);
         }
     }
@@ -119,7 +119,7 @@ public class MainActivity extends AppCompatActivity {
             textViewCountry.setText("Location permission not granted");
         }
     }
-    // Handle the permission resultsaaa
+
     /*@Override
     public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
         if (requestCode == LOCATION_PERMISSION_REQUEST_CODE) {
@@ -160,7 +160,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }*/
 
-    // Handle the result of the camera capture
+    //Handles the result of the camera capture
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         //super.onActivityResult(requestCode, resultCode, data);
@@ -193,7 +193,7 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         } else {
-            //If the result is not from the QR code scanner,it handles it normally
+
             super.onActivityResult(requestCode, resultCode, data);
         }
     }

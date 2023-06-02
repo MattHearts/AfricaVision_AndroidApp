@@ -5,6 +5,9 @@
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
     </style>
 
-    <style name="Theme.EurovisionApp" parent="Base.Theme.EurovisionApp" />
+    <style name="Theme.EurovisionApp" parent="Base.Theme.EurovisionApp">
+    <item name="colorPrimary">@color/app_purple</item>
+        <item name="android:windowBackground">@color/app_purple</item>
+    </style>
 
 </resources>

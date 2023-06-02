@@ -13,7 +13,6 @@ public abstract class AppDatabase extends RoomDatabase {
 
     public abstract UserDao userDao();
 
-    // Singleton pattern to ensure only one instance of AppDatabase is createda
     public static synchronized AppDatabase getInstance(Context context) {
         if (instance == null) {
             // Creates a new instance of AppDatabase

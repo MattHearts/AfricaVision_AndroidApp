@@ -31,14 +31,14 @@ public class CommentsActivity extends AppCompatActivity {
 
         Button AddCommentButton = findViewById(R.id.buttonAddComment);
         AddCommentButton.setOnClickListener(view -> {
-            // Starts the AddACommentActivity to add a new comment
+            //Starts the AddACommentActivity to add a new comment
             Intent intent = new Intent(this, AddACommentActivity.class);
             startActivity(intent);
         });
 
         Button buttonDeleteComments = findViewById(R.id.buttonDeleteComments);
         buttonDeleteComments.setOnClickListener(view -> {
-            // Asks the user to confirm the deletion of all comments
+            //Asks the user to confirm the deletion of all comments
             deleteAllComments();
         });
 
@@ -47,7 +47,7 @@ public class CommentsActivity extends AppCompatActivity {
             retrieveComments();
         });
 
-        // Sets up the RecyclerView to display comments
+        //Sets up the RecyclerView to display comments
         recyclerViewComments = findViewById(R.id.recyclerViewComments);
         recyclerViewComments.setLayoutManager(new LinearLayoutManager(this));
 
@@ -57,7 +57,7 @@ public class CommentsActivity extends AppCompatActivity {
         retrieveComments();
     }
 
-    // Retrieves and display the comments from the database to the RecycleView
+    //Retrieves and display the comments from the database to the RecycleView
     private void retrieveComments() {
         UserRepository.getAllComments().observe(this, new Observer<List<UserModel>>() {
             @Override
@@ -78,7 +78,7 @@ public class CommentsActivity extends AppCompatActivity {
         });
     }
 
-    // Asks the user to confirm the deletion of all comments
+    //Asks the user to confirm the deletion of all comments
     public void deleteAllComments() {
         new AlertDialog.Builder(this)
                 .setTitle("Delete All Comments")
@@ -98,7 +98,7 @@ public class CommentsActivity extends AppCompatActivity {
     }
 
 
-    // AsyncTask to delete comments from the database in the background
+    //AsyncTask to delete comments from the database in the background
     private class DeleteCommentsTask extends AsyncTask<Void, Void, Void> {
         @Override
         protected Void doInBackground(Void... voids) {

@@ -30,7 +30,7 @@
         android:id="@+id/buttonAddComment"
         android:layout_width="127dp"
         android:layout_height="wrap_content"
-        android:backgroundTint="#5AA305"
+        android:backgroundTint="@color/app_green"
         android:text="@string/add_a_comment_btn" />
 
     <androidx.recyclerview.widget.RecyclerView
@@ -57,14 +57,14 @@
 
         android:onClick="deleteAllComments"
         android:text="@string/delete_all_comments"
-        app:backgroundTint="#772A2A" />
+        app:backgroundTint="@color/app_orange" />
 
     <Button
         android:id="@+id/buttonRefreshComments"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/refresh_btn_text"
-        app:backgroundTint="#CD3100"
+        app:backgroundTint="@color/app_yellow"
         app:cornerRadius="0dp" />
 
 </LinearLayout>
