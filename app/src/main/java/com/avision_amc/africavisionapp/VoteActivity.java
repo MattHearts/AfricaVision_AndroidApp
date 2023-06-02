@@ -18,7 +18,7 @@ public class VoteActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_vote);
 
-        //Initializes the ListView
+        //Initializes the ListViewα
         contestantsListView = findViewById(R.id.contestantsListView);
         //Creates a list of contestants
         List<Contestant> contestants = new ArrayList<>();
