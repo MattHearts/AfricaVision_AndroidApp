@@ -3,7 +3,9 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="app_purple">#251545</color>
+    <color name="app_darkpurple">#1B0F33</color>
     <color name="app_yellow">#ffb127</color>
     <color name="app_orange">#b72f27</color>
     <color name="app_green">#147444</color>
+    <color name="app_grey">#7C7C7C</color>
 </resources>

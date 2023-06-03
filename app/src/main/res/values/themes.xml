@@ -8,6 +8,12 @@
     <style name="Theme.EurovisionApp" parent="Base.Theme.EurovisionApp">
     <item name="colorPrimary">@color/app_purple</item>
         <item name="android:windowBackground">@color/app_purple</item>
+        <item name="android:colorPrimary">@color/app_purple</item>
+        <item name="android:colorPrimaryDark">@color/app_purple</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:textColorPrimary">@color/app_purple</item>
+        <item name="colorAccent">@color/app_purple</item>
+        <item name="android:navigationBarColor">@color/app_darkpurple</item>
     </style>
 
 </resources>
